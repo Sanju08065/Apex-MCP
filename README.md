@@ -288,7 +288,12 @@ A: Yes. Every time you open a different folder in VS Code, the config updates to
 
 ## Built By
 
-**Ratnam Sanjay** — Building the Apex ecosystem solo
+**Ratnam Sanjay** — Building the Apex ecosystem solo.
+
+- 🌐 Portfolio: [sanjay-r.netlify.app](https://sanjay-r.netlify.app)
+- 🐙 GitHub: [@Sanju08065](https://github.com/Sanju08065)
+- 💼 LinkedIn: [linkedin.com/in/ratnam-sanjay](https://linkedin.com/in/ratnam-sanjay)
+- ✈️ Telegram: [@Sanju08065](https://t.me/Sanju08065)
 
 ---
 
@@ -296,7 +301,8 @@ A: Yes. Every time you open a different folder in VS Code, the config updates to
 
 MIT License — see [LICENSE](LICENSE) for details.
 
-Contact me for license key — WhatsApp: [+91 70134 82085](https://wa.me/917013482085)
+For questions or support → [hello@ratnamsanjay.dev](mailto:hello@ratnamsanjay.dev)
+
 ---
 
 <div align="center">
