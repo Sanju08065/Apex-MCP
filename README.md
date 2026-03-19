@@ -276,11 +276,7 @@ A: Yes. Every time you open a different folder in VS Code, the config updates to
 - 🌐 Portfolio: [sanjay-r.netlify.app](https://sanjay-r.netlify.app)
 <<<<<<< HEAD
 Contact me for License Key  [@Sanju08065](https://t.me/Sanju08065)
-=======
-- 🐙 GitHub: [@Sanju08065](https://github.com/Sanju08065)
-- 💼 LinkedIn: [linkedin.com/in/ratnam-sanjay](https://linkedin.com/in/ratnam-sanjay)
 - ✈️ Telegram: [@Sanju08065](https://t.me/Sanju08065)
->>>>>>> c4e73d5 (Add proof video and embed in README)
 
 ---
 
