@@ -116,7 +116,7 @@ Claude Desktop  ──── MCP (stdio) ────  Apex MCP Server  ──�
 ### Step 1 — Install the Extension
 
 **Option A — From .vsix file:**
-1. Download `apex-1.0.0.vsix` from [Releases](https://github.com/Sanju08065/Apex-MCP/releases/latest)
+1. Download `apex-1.0.0.vsix` from [Releases](https://github.com/Sanju08065/Apex-MCP/releases/tag/v1.0.1)
 2. Open VS Code
 3. Press `Ctrl+Shift+P` → `Extensions: Install from VSIX`
 4. Select the downloaded file
