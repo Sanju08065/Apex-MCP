@@ -291,9 +291,7 @@ A: Yes. Every time you open a different folder in VS Code, the config updates to
 **Ratnam Sanjay** — Building the Apex ecosystem solo.
 
 - 🌐 Portfolio: [sanjay-r.netlify.app](https://sanjay-r.netlify.app)
-- 🐙 GitHub: [@Sanju08065](https://github.com/Sanju08065)
-- 💼 LinkedIn: [linkedin.com/in/ratnam-sanjay](https://linkedin.com/in/ratnam-sanjay)
-- ✈️ Telegram: [@Sanju08065](https://t.me/Sanju08065)
+Contact me for License Key  [@Sanju08065](https://t.me/Sanju08065)
 
 ---
 
