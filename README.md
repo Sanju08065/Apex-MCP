@@ -163,20 +163,6 @@ Claude will use the MCP tools to read, write, and modify your files directly —
 
 ---
 
-## Live Streaming — How It Works
-
-When Claude writes a file through Apex MCP:
-
-1. Claude calls the `create_file` tool with path and content
-2. The MCP server creates the file and writes a streaming marker to `.vscode/.apex-streaming/`
-3. The VS Code extension picks up the marker via file watcher
-4. The file opens in your editor and content streams in token by token
-5. You watch Claude type — live
-
-Same for `apply_diff` — you see the old lines replaced with new lines in real time.
-
----
-
 ## Auto-Config — How It Works
 
 When you open a folder in VS Code with Apex MCP installed:
