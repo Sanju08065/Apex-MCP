@@ -39,7 +39,7 @@ Claude Desktop  ──── MCP (stdio) ────  Apex MCP Server  ──�
 
 > 📹 Proof video (local)
 
-[![Proof video](./thumbnail.jpg)](./Screen%20Recording%202026-03-19%20123558.mp4)
+[![Proof video](./thumbnail.jpg)](https://Sanju08065.github.io/Apex-MCP/video.html)
 
 <details>
 <summary>Direct video (raw file)</summary>
