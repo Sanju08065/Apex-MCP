@@ -4,7 +4,7 @@
 
 **Give Claude Desktop superpowers inside your VS Code workspace.**
 
-[![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square)](https://github.com/ratnam-sanjay/extension/releases)
+[![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square)](https://github.com/Sanju08065/Apex-MCP)
 [![VS Code](https://img.shields.io/badge/VS%20Code-1.85+-blueviolet?style=flat-square&logo=visualstudiocode)](https://code.visualstudio.com)
 [![MCP](https://img.shields.io/badge/Protocol-MCP-orange?style=flat-square)](https://modelcontextprotocol.io)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
@@ -115,16 +115,12 @@ Claude Desktop  ──── MCP (stdio) ────  Apex MCP Server  ──�
 ### Step 1 — Install the Extension
 
 **Option A — From .vsix file:**
-1. Download `apex-1.0.0.vsix` from [Releases](https://github.com/ratnam-sanjay/extension/releases/latest)
+1. Download `apex-1.0.0.vsix` from [Releases](https://github.com/Sanju08065/Apex-MCP)
 2. Open VS Code
 3. Press `Ctrl+Shift+P` → `Extensions: Install from VSIX`
 4. Select the downloaded file
 5. Reload VS Code
 
-**Option B — Command line:**
-```bash
-code --install-extension apex-1.0.0.vsix
-```
 
 ### Step 2 — Install Claude Desktop
 
