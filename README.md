@@ -48,10 +48,6 @@ Claude Desktop  ──── MCP (stdio) ────  Apex MCP Server  ──�
 - Automatically updates `claude_desktop_config.json` with correct workspace path
 - Claude Desktop connects immediately — no manual JSON editing ever
 
-### 🎬 Live Streaming in VS Code Editor
-- When Claude creates or edits a file, you **watch it happen token by token** in your VS Code editor
-- File appears in the explorer, opens automatically, content streams in real time
-- Diff application shows old vs new content live as changes are applied
 
 ### 🛠️ 50+ Tools Available to Claude
 
