@@ -39,11 +39,14 @@ Claude Desktop  ──── MCP (stdio) ────  Apex MCP Server  ──�
 
 > 📹 Proof video (local)
 
-<video controls width="720" src="./Screen Recording 2026-03-19 123558.mp4">
-Your browser does not support the video tag.
-</video>
+[![Proof video](./thumbnail.jpg)](./Screen%20Recording%202026-03-19%20123558.mp4)
+
+<details>
+<summary>Direct video (raw file)</summary>
 
 [View proof video (raw file)](./Screen%20Recording%202026-03-19%20123558.mp4)
+
+</details>
 ---
 
 ## Features
