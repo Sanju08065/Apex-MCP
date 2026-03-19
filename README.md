@@ -5,6 +5,7 @@
 **Give Claude Desktop superpowers inside your VS Code workspace.**
 
 [![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square)](https://github.com/Sanju08065/Apex-MCP)
+[![Release](https://img.shields.io/github/v/release/Sanju08065/Apex-MCP?style=flat-square)](https://github.com/Sanju08065/Apex-MCP/releases/latest)
 [![VS Code](https://img.shields.io/badge/VS%20Code-1.85+-blueviolet?style=flat-square&logo=visualstudiocode)](https://code.visualstudio.com)
 [![MCP](https://img.shields.io/badge/Protocol-MCP-orange?style=flat-square)](https://modelcontextprotocol.io)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
@@ -139,6 +140,7 @@ Restart Claude Desktop once after the first install so it picks up the new MCP s
 **That's it.** Open Claude Desktop and start talking about your codebase.
 
 ---
+.....................................
 
 ## Usage
 
