@@ -257,21 +257,6 @@ A: Only when Claude calls a write tool. By default, destructive actions require 
 **Q: Is my code sent anywhere?**
 A: Your code is sent to Anthropic's API through Claude Desktop (same as using Claude Desktop normally). The Apex MCP extension itself does not send your code anywhere — it only provides tools to Claude.
 
-**Q: What if the auto-config doesn't work?**
-A: Manually add this to your `claude_desktop_config.json`:
-```json
-{
-  "mcpServers": {
-    "apex-vscode": {
-      "command": "node",
-      "args": ["PATH_TO_EXTENSION/out/mcpServerStandalone.js"],
-      "env": {
-        "WORKSPACE_ROOT": "YOUR_PROJECT_PATH"
-      }
-    }
-  }
-}
-```
 
 **Q: Can I use it with multiple projects?**
 A: Yes. Every time you open a different folder in VS Code, the config updates to point to that workspace.
@@ -303,25 +288,9 @@ A: Yes. Every time you open a different folder in VS Code, the config updates to
 
 ---
 
-## Part of the Apex Ecosystem
-
-Apex MCP Agent is one piece of a larger ecosystem:
-
-| Project | What it is |
-|---|---|
-| **Apex MCP Agent** (this) | VS Code extension — Claude Desktop controls your codebase |
-| **[ApexIDE](https://github.com/ratnam-sanjay/ApexIDE)** | Full standalone AI-powered desktop IDE |
-| **[AndroidMCP](https://github.com/ratnam-sanjay/AndroidMCP)** | Claude Desktop controls your Android phone |
-
----
-
 ## Built By
 
-**Ratnam Sanjay** — Building the Apex ecosystem solo.
-
-- 🌐 Portfolio: [sanjay-r.netlify.app](https://sanjay-r.netlify.app)
-- 🐙 GitHub: [@ratnam-sanjay](https://github.com/ratnam-sanjay)
-- 💼 LinkedIn: [linkedin.com/in/ratnam-sanjay](https://linkedin.com/in/ratnam-sanjay)
+**Ratnam Sanjay** — Building the Apex ecosystem solo
 
 ---
 
@@ -329,6 +298,7 @@ Apex MCP Agent is one piece of a larger ecosystem:
 
 MIT License — see [LICENSE](LICENSE) for details.
 
+Contact me for license key — WhatsApp: [+91 70134 82085](https://wa.me/917013482085)
 ---
 
 <div align="center">
