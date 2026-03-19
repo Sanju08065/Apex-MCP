@@ -37,8 +37,13 @@ Claude Desktop  ──── MCP (stdio) ────  Apex MCP Server  ──�
 
 ## Demo
 
-> 📹 *[Add demo GIF or video here — show Claude Desktop writing a file that appears live in VS Code]*
+> 📹 Proof video (local)
 
+<video controls width="720" src="./Screen Recording 2026-03-19 123558.mp4">
+Your browser does not support the video tag.
+</video>
+
+[View proof video (raw file)](./Screen%20Recording%202026-03-19%20123558.mp4)
 ---
 
 ## Features
@@ -48,7 +53,10 @@ Claude Desktop  ──── MCP (stdio) ────  Apex MCP Server  ──�
 - Automatically updates `claude_desktop_config.json` with correct workspace path
 - Claude Desktop connects immediately — no manual JSON editing ever
 
-
+### 🎬 Live Streaming in VS Code Editor
+- When Claude creates or edits a file, you **watch it happen token by token** in your VS Code editor
+- File appears in the explorer, opens automatically, content streams in real time
+- Diff application shows old vs new content live as changes are applied
 ### 🛠️ 50+ Tools Available to Claude
 
 **File Operations**
@@ -287,7 +295,13 @@ A: Yes. Every time you open a different folder in VS Code, the config updates to
 **Ratnam Sanjay** — Building the Apex ecosystem solo.
 
 - 🌐 Portfolio: [sanjay-r.netlify.app](https://sanjay-r.netlify.app)
+<<<<<<< HEAD
 Contact me for License Key  [@Sanju08065](https://t.me/Sanju08065)
+=======
+- 🐙 GitHub: [@Sanju08065](https://github.com/Sanju08065)
+- 💼 LinkedIn: [linkedin.com/in/ratnam-sanjay](https://linkedin.com/in/ratnam-sanjay)
+- ✈️ Telegram: [@Sanju08065](https://t.me/Sanju08065)
+>>>>>>> c4e73d5 (Add proof video and embed in README)
 
 ---
 
