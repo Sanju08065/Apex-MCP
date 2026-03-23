@@ -46,11 +46,6 @@ Claude Desktop  ──── MCP (stdio) ────  Apex MCP Server  ──�
 - Automatically updates `claude_desktop_config.json` with correct workspace path
 - Claude Desktop connects immediately — no manual JSON editing ever
 
-### 🎬 Live Streaming in VS Code Editor
-- When Claude creates or edits a file, you **watch it happen token by token** in your VS Code editor
-- File appears in the explorer, opens automatically, content streams in real time
-- Diff application shows old vs new content live as changes are applied
-### 🛠️ 50+ Tools Available to Claude
 
 **File Operations**
 - Create, read, write, delete, rename files
@@ -276,7 +271,6 @@ A: Yes. Every time you open a different folder in VS Code, the config updates to
 - 🌐 Portfolio: [sanjay-r.netlify.app](https://sanjay-r.netlify.app)
 <<<<<<< HEAD
 Contact me for License Key  [@Sanju08065](https://t.me/Sanju08065)
-- ✈️ Telegram: [@Sanju08065](https://t.me/Sanju08065)
 
 ---
 
