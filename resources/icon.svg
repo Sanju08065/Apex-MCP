@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#gradient1)"/>
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Shield Shape (Security) -->
+  <path d="M 256 80 L 180 110 L 180 220 Q 180 320 256 400 Q 332 320 332 220 L 332 110 Z" 
+        fill="white" opacity="0.95"/>
+  
+  <!-- Lock Symbol -->
+  <rect x="230" y="220" width="52" height="60" rx="5" fill="url(#gradient2)"/>
+  <path d="M 235 220 L 235 200 Q 235 175 256 175 Q 277 175 277 200 L 277 220" 
+        stroke="url(#gradient2)" stroke-width="8" fill="none" stroke-linecap="round"/>
+  
+  <!-- Keyhole -->
+  <circle cx="256" cy="240" r="8" fill="white"/>
+  <rect x="252" y="240" width="8" height="20" fill="white"/>
+  
+  <!-- Circuit Lines (AI/Tech) -->
+  <g stroke="white" stroke-width="3" fill="none" opacity="0.6">
+    <line x1="200" y1="150" x2="220" y2="150"/>
+    <line x1="220" y1="150" x2="220" y2="170"/>
+    <circle cx="220" cy="170" r="3" fill="white"/>
+    
+    <line x1="312" y1="150" x2="292" y2="150"/>
+    <line x1="292" y1="150" x2="292" y2="170"/>
+    <circle cx="292" cy="170" r="3" fill="white"/>
+    
+    <line x1="200" y1="310" x2="220" y2="310"/>
+    <circle cx="220" cy="310" r="3" fill="white"/>
+    
+    <line x1="312" y1="310" x2="292" y2="310"/>
+    <circle cx="292" cy="310" r="3" fill="white"/>
+  </g>
+  
+  <!-- Apex Text (Subtle) -->
+  <text x="256" y="360" font-family="Arial, sans-serif" font-size="24" 
+        font-weight="bold" fill="white" text-anchor="middle" opacity="0.8">APEX</text>
+</svg>

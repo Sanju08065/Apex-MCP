@@ -1,0 +1,95 @@
+# ONLY INCLUDE ESSENTIAL FILES + out.zip
+# Everything else is excluded
+
+# Source files - EXCLUDE
+src/**
+.vscode/**
+.vscode-test/**
+
+# Build files - EXCLUDE
+*.ts
+*.map
+tsconfig.json
+*.enc
+!out/bundle.enc
+!resources/resources.enc
+build.config.js
+binding.gyp
+
+# Scripts - EXCLUDE (IMPORTANT!)
+scripts/**
+
+# Firebase credentials - EXCLUDE (CRITICAL SECURITY!)
+firebase/**
+serviceAccountKey.json
+**/serviceAccountKey.json
+
+# License keys - EXCLUDE (CRITICAL!)
+licenses/**
+*.json
+!package.json
+
+# Encryption/ZIP keys - EXCLUDE (CRITICAL!)
+.encryption-key
+.master-secret
+*.key
+.tool-mapping.json
+.zip-password
+
+# Build artifacts - EXCLUDE
+build/**
+
+# out/ folder - EXCLUDE EVERYTHING except specific files
+out/**
+!out/extension.js
+!out/mcpServerStandalone.js
+!out/bundle.enc
+
+# out.zip - EXCLUDE (we're using bundle.enc instead)
+out.zip
+
+# out-full/ folder - EXCLUDE (reference files only)
+out-full/**
+
+# Development files - EXCLUDE
+.gitignore
+.eslintrc.json
+.prettierrc
+*.log
+.editorconfig
+
+# Node modules - EXCLUDE
+node_modules/**
+
+# Test files - EXCLUDE
+test/**
+**/*.test.ts
+
+# Documentation - EXCLUDE
+.github/**
+*.md
+!README.md
+
+# Config files - EXCLUDE
+.kiro/**
+
+# Resources - EXCLUDE EVERYTHING except resources.enc
+resources/**
+!resources/resources.enc
+
+# VSIX files - EXCLUDE
+*.vsix
+apex-1.0.0/**
+
+# Misc - EXCLUDE
+.DS_Store
+Thumbs.db
+
+# ONLY THESE ARE INCLUDED:
+# - package.json (extension manifest - NOT encrypted)
+# - out/extension.js (entry point)
+# - out/mcpServerStandalone.js (MCP server)
+# - out/bundle.enc (single encrypted bundle)
+# - resources/resources.enc (encrypted resources)
+# - README.md (if exists)
+

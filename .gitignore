@@ -1,0 +1,11 @@
+node_modules/
+firebase/
+iut/
+out/
+out-full/
+outfull/
+out.zip
+*.mov
+.kiro/
+.apex/
+build/

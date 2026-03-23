@@ -1,0 +1,221 @@
+TOKEN STREAMING FLOW DIAGRAM
+============================
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                         CLIENT APPLICATION                          │
+│  (VS Code Extension, CLI Tool, Web App, etc.)                      │
+└─────────────────────────────────────────────────────────────────────┘
+                                  │
+                                  │ 1. Send tool call request
+                                  │    { method: "tools/call",
+                                  │      params: { name: "create_file", ... } }
+                                  ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                          MCP SERVER                                 │
+│                      (src/mcpServer.ts)                            │
+│                                                                     │
+│  ┌──────────────────────────────────────────────────────────────┐ │
+│  │ handleToolsCall()                                            │ │
+│  │  • Validates request                                         │ │
+│  │  • Creates streamingCallback function                        │ │
+│  │  • Passes callback to tool execution context                 │ │
+│  └──────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────┘
+                                  │
+                                  │ 2. Execute tool with context
+                                  │    (includes streamingCallback)
+                                  ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                        TOOL EXECUTION                               │
+│         (CreateFileTool or ApplyDiffTool)                          │
+│                                                                     │
+│  ┌──────────────────────────────────────────────────────────────┐ │
+│  │ execute(params, context)                                     │ │
+│  │                                                              │ │
+│  │  Step 1: Start operation                                    │ │
+│  │  ├─→ streamingCallback("Creating file...", {type:"status"}) │ │
+│  │  │                                                           │ │
+│  │  Step 2: Process content                                    │ │
+│  │  ├─→ streamingCallback("Writing...", {type:"progress"})     │ │
+│  │  ├─→ streamingCallback([chunk1], {type:"content"})          │ │
+│  │  ├─→ streamingCallback("[Progress: 25%]", {type:"progress"})│ │
+│  │  ├─→ streamingCallback([chunk2], {type:"content"})          │ │
+│  │  ├─→ streamingCallback("[Progress: 50%]", {type:"progress"})│ │
+│  │  └─→ ... continues ...                                      │ │
+│  │                                                              │ │
+│  │  Step 3: Complete operation                                 │ │
+│  │  └─→ streamingCallback("✓ Success", {type:"status"})        │ │
+│  │                                                              │ │
+│  │  Step 4: Return final result                                │ │
+│  │  └─→ return { success: true, ... }                          │ │
+│  └──────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────┘
+         │                                              │
+         │ 3. Each callback invocation                  │ 4. Final result
+         │    sends notification                        │    sent as response
+         ▼                                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                          MCP SERVER                                 │
+│                                                                     │
+│  ┌──────────────────────────────────────────────────────────────┐ │
+│  │ streamingCallback(chunk, metadata)                           │ │
+│  │  └─→ sendNotification("notifications/tools/progress", {     │ │
+│  │         toolCallId: "call_123",                              │ │
+│  │         chunk: "...",                                        │ │
+│  │         metadata: { type: "status" }                         │ │
+│  │      })                                                      │ │
+│  └──────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────┘
+         │                                              │
+         │ Notifications (real-time)                    │ Response (final)
+         ▼                                              ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                         CLIENT APPLICATION                          │
+│                                                                     │
+│  ┌──────────────────────────────────────────────────────────────┐ │
+│  │ handleMessage(msg)                                           │ │
+│  │                                                              │ │
+│  │  if (msg.method === "notifications/tools/progress") {       │ │
+│  │    const { chunk, metadata } = msg.params;                  │ │
+│  │                                                              │ │
+│  │    switch (metadata.type) {                                 │ │
+│  │      case "status":                                         │ │
+│  │        updateStatusBar(chunk);  ← "Creating file..."        │ │
+│  │        break;                                               │ │
+│  │      case "progress":                                       │ │
+│  │        updateProgressBar(chunk); ← "[Progress: 50%]"        │ │
+│  │        break;                                               │ │
+│  │      case "content":                                        │ │
+│  │        showPreview(chunk);      ← [actual content]          │ │
+│  │        break;                                               │ │
+│  │    }                                                         │ │
+│  │  }                                                           │ │
+│  │                                                              │ │
+│  │  if (msg.id) {                                              │ │
+│  │    // Final response received                               │ │
+│  │    handleCompletion(msg.result);                            │ │
+│  │  }                                                           │ │
+│  └──────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────┘
+                                  │
+                                  │ 5. Display to user
+                                  ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                            USER INTERFACE                           │
+│                                                                     │
+│  Status Bar:  [●] Creating file: example.txt                       │
+│  Progress:    [████████████░░░░░░░░] 50%                          │
+│  Preview:     ┌─────────────────────────────────────┐             │
+│               │ const x = 1;                        │             │
+│               │ const y = 2;                        │             │
+│               │ function example() {                │             │
+│               │   return x + y;                     │             │
+│               │ }                                   │             │
+│               └─────────────────────────────────────┘             │
+└─────────────────────────────────────────────────────────────────────┘
+
+
+TIMELINE VIEW
+=============
+
+Time  │ Event
+──────┼────────────────────────────────────────────────────────────────
+0ms   │ Client sends tools/call request
+      │
+5ms   │ Server creates streamingCallback
+      │ Server calls tool.execute()
+      │
+10ms  │ Tool: streamingCallback("Creating file...", {type:"status"})
+      │ Server: sendNotification(...)
+      │ Client: receives notification
+      │ Client: updates status bar
+      │
+15ms  │ Tool: streamingCallback("Writing content...", {type:"progress"})
+      │ Server: sendNotification(...)
+      │ Client: receives notification
+      │ Client: shows progress indicator
+      │
+20ms  │ Tool: streamingCallback([chunk1], {type:"content"})
+      │ Server: sendNotification(...)
+      │ Client: receives notification
+      │ Client: displays content preview
+      │
+25ms  │ Tool: streamingCallback("[Progress: 25%]", {type:"progress"})
+      │ Server: sendNotification(...)
+      │ Client: receives notification
+      │ Client: updates progress bar to 25%
+      │
+30ms  │ Tool: streamingCallback([chunk2], {type:"content"})
+      │ ... continues ...
+      │
+100ms │ Tool: streamingCallback("✓ Success", {type:"status"})
+      │ Server: sendNotification(...)
+      │ Client: receives notification
+      │ Client: shows success message
+      │
+105ms │ Tool: returns final result
+      │ Server: sends response
+      │ Client: receives response
+      │ Client: completes operation
+
+
+METADATA TYPE USAGE
+===================
+
+┌────────────┬──────────────────────────────────────────────────────┐
+│ Type       │ Usage                                                │
+├────────────┼──────────────────────────────────────────────────────┤
+│ status     │ • Operation start/end messages                       │
+│            │ • Success/failure indicators                         │
+│            │ • State changes                                      │
+│            │ Examples:                                            │
+│            │   "Creating file: example.txt"                       │
+│            │   "✓ File created successfully"                      │
+│            │   "Validating edit 1/3..."                           │
+├────────────┼──────────────────────────────────────────────────────┤
+│ progress   │ • Percentage indicators                              │
+│            │ • Step counters                                      │
+│            │ • Progress updates                                   │
+│            │ Examples:                                            │
+│            │   "[Progress: 45%]"                                  │
+│            │   "Edit 2/5"                                         │
+│            │   "Processing line 100/500"                          │
+├────────────┼──────────────────────────────────────────────────────┤
+│ content    │ • Actual file content                                │
+│            │ • Code being written/modified                        │
+│            │ • Data being processed                               │
+│            │ Examples:                                            │
+│            │   "const x = 1;\nconst y = 2;\n"                     │
+│            │   "function example() { ... }"                       │
+│            │   [binary data chunks]                               │
+└────────────┴──────────────────────────────────────────────────────┘
+
+
+BENEFITS VISUALIZATION
+======================
+
+WITHOUT STREAMING:                WITH STREAMING:
+─────────────────                 ──────────────
+
+User clicks "Create File"         User clicks "Create File"
+         │                                 │
+         ▼                                 ▼
+    [Loading...]                    [Creating file...]
+         │                                 │
+         │                          [Writing content...]
+         │                                 │
+         │                          [Progress: 25%]
+         │                                 │
+    (30 seconds)                    [Progress: 50%]
+         │                                 │
+         │                          [Progress: 75%]
+         │                                 │
+         ▼                                 ▼
+    [Complete!]                     [✓ File created!]
+
+User Experience:                  User Experience:
+• No feedback                     • Real-time updates
+• Uncertain if working            • Clear progress
+• May think it's frozen           • Confidence it's working
+• Can't see errors early          • Early error detection
+• Frustrating wait                • Engaging experience
