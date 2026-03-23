@@ -4,7 +4,7 @@
 
 **Give Claude Desktop superpowers inside your VS Code workspace.**
 
-[![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square)](https://github.com/Sanju08065/Apex-MCP/releases/latest)
+[![Version](https://img.shields.io/badge/Version-1.0.1-blue?style=flat-square)](https://github.com/Sanju08065/Apex-MCP/releases/latest)
 [![Release](https://img.shields.io/github/v/release/Sanju08065/Apex-MCP?style=flat-square&label=release&color=blue)](https://github.com/Sanju08065/Apex-MCP/releases/latest)
 [![VS Code](https://img.shields.io/badge/VS%20Code-1.85+-blueviolet?style=flat-square&logo=visualstudiocode)](https://code.visualstudio.com)
 [![MCP](https://img.shields.io/badge/Protocol-MCP-orange?style=flat-square)](https://modelcontextprotocol.io)
